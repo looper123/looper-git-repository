@@ -1,0 +1,66 @@
+server:
+  port: 8888
+
+#会在所有actuator 提供的端点前一个指定前缀 对
+#应在eureka检查端点上也需要做出相应配置
+management:
+  context-path: /admin
+
+#配置多个注册中心 逗号分隔
+eureka:
+  client:
+      service-url:
+            defaultZone: http://discovery:8761/eureka
+  instance:
+    hostname: configserver
+#    non-secure-port: 80
+#    lease-renewal-interval-in-seconds: 10
+#    注册中心健康状况页 http://configserver:8888/health
+    health-check-url-path: ${management.context-path}/health
+#    注册中心状态页 http://configserver:8888/health
+    status-page-url-path: ${management.context-path}/info
+
+#   environment uri
+#   所有应用的共享仓库地址 你也可以每一个应用配置一个仓库地址 或者配置多个仓库地址
+#spring:
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://github.com/spring-cloud-samples/config-repo
+##         本地用于保存远程仓库配置的路径
+#          basedir: config
+
+
+#eureka:
+#  password: password
+#  instance:
+#    hostname: ${vcap.application.uris[0]}
+#    nonSecurePort: 80
+#  client:
+#    serviceUrl:
+#      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:${eureka.password:}@${PREFIX:}eureka.${application
+#.domain:cfapps.io}}/eureka/
+
+
+
+#project environment
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: http://172.26.182.39:9090/root/pdms.git
+          search-paths: proproties-sit
+          username: JunHuang@quarkfinance.com
+          password: Password@1
+
+security:
+  basic:
+    enabled: false
+
+management.security.enabled: false
+eureka.client.healthcheck.enabled: true
+info.version: 1.0.0
+
+

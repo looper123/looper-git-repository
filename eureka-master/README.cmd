@@ -1,0 +1,1 @@
+eureka 默认使用jarsey、xStream配合json 来实现client和server间的通信服务
