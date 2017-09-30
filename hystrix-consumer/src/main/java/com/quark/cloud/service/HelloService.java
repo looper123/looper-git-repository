@@ -1,4 +1,4 @@
-package cloud.service;
+package com.quark.cloud.service;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;

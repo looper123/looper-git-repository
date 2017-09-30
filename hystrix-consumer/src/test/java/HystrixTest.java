@@ -1,5 +1,5 @@
-import cloud.ConsumerApplication;
-import cloud.service.HelloService;
+import com.quark.cloud.ConsumerApplication;
+import com.quark.cloud.service.HelloService;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

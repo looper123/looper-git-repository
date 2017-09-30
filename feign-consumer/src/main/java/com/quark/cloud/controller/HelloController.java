@@ -1,4 +1,4 @@
-package cloud.controller;
+package com.quark.cloud.controller;
 
 import com.quark.cloud.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package cloud.service;
+package com.quark.cloud.service;
 
 import org.springframework.stereotype.Service;
 

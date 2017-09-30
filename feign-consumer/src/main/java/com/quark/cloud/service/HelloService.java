@@ -1,4 +1,4 @@
-package cloud.service;
+package com.quark.cloud.service;
 
 import com.quark.cloud.entity.UserEntity;
 import org.springframework.cloud.netflix.feign.FeignClient;
@@ -13,12 +13,12 @@ public interface HelloService {
     @RequestMapping(value = "/hello",method = RequestMethod.GET)
     String hello();
 
-    @RequestMapping(value ="hello1",method = RequestMethod.GET)
+    @RequestMapping(value ="/hello1",method = RequestMethod.GET)
     String hello1(@RequestParam String name);
 
-    @RequestMapping(value ="hello2",method = RequestMethod.GET)
+    @RequestMapping(value ="/hello2",method = RequestMethod.GET)
     UserEntity hello2(@RequestHeader String name, @RequestHeader String age);
 
-    @RequestMapping(value ="hello3",method = RequestMethod.POST)
+    @RequestMapping(value ="/hello3",method = RequestMethod.POST)
      String hello3(@RequestBody UserEntity userEntity);
 }
