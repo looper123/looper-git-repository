@@ -22,3 +22,7 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+cloud-common/
+config-server-master/src/test/
+eureka-master/src/test/
+feign-consumer/src/test/
