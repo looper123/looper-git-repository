@@ -9,7 +9,10 @@
 	<modules>
 		<module>config-server-master</module>
 		<module>eureka-master</module>
-		<module>sample-test</module>
+		<module>hello-service</module>
+		<module>hystrix-consumer</module>
+		<module>feign-consumer</module>
+		<module>cloud-common</module>
 	</modules>
 	<packaging>pom</packaging>
 
