@@ -20,7 +20,7 @@ public class ConcurrentVist {
     @RequestMapping(value = "CirCuitBreaker", method = RequestMethod.GET)
     public void CirCuitBreaker() throws InterruptedException {
         //CountDownLatch  当signal. countDown()的调用次数超过初始化的值后 所有 signal.await()的线程都会启动
-        CountDownLatch signal = new CountDownLatch(7);
+        final CountDownLatch signal = new CountDownLatch(7);
         new Thread(new Runnable() {
             @Override
             public void run() {

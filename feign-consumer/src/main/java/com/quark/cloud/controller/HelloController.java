@@ -1,7 +1,7 @@
 package com.quark.cloud.controller;
 
 import com.quark.cloud.entity.UserEntity;
-import com.quark.cloud.service.HelloService;
+import com.quark.cloud.service.api.HelloService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

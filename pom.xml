@@ -13,6 +13,7 @@
 		<module>feign-consumer</module>
 		<module>cloud-common</module>
 		<module>hello-service</module>
+		<module>service-center-api</module>
 	</modules>
 	<packaging>pom</packaging>
 
@@ -32,6 +33,7 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -43,9 +45,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
-
-
 	</dependencies>
 
 	<build>
@@ -55,7 +54,6 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-
 	</build>
 
 

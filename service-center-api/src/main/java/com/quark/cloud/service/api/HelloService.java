@@ -1,13 +1,14 @@
-package com.quark.cloud.service;
+package com.quark.cloud.service.api;
 
 import com.quark.cloud.entity.UserEntity;
 import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by ZhenpengLu on 2017/9/29.
  */
-@FeignClient("SAMPLE")
+@FeignClient(value = "SAMPLE")
 public interface HelloService {
 
     @RequestMapping(value = "/hello",method = RequestMethod.GET)

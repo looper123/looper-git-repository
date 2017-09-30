@@ -5,14 +5,18 @@ eureka:
   client:
 #    缓存清单的更新时间(30秒获取一次服务列表)
     registry-fetch-interval-seconds: 10
-    register-with-eureka: true
+    register-with-eureka: false
 #    抓取注册的服务
-    fetch-registry: true
+    fetch-registry: false
+#    初始化实例信息到eureka的时间
+    initial-instance-info-replication-interval-seconds: 10
+#    更新实例变化信息到eureka的时间
+    instance-info-replication-interval-seconds: 10
   server:
     wait-time-in-ms-when-sync-empty: 0
   instance:
-#   心跳频率（30向服务器发送一次心跳）
+#   心跳频率（10向服务器发送一次心跳）
     lease-renewal-interval-in-seconds: 10
-#    服务超时（服务停止90秒后 剔除出服务列表）
+#    服务超时（服务停止20秒后 剔除出服务列表）
     lease-expiration-duration-in-seconds: 20
 
