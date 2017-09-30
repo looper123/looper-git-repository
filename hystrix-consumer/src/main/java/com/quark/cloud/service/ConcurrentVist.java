@@ -9,6 +9,7 @@ import java.util.concurrent.CountDownLatch;
 
 /**
  * Created by ZhenpengLu on 2017/9/28.
+ * 断路器信号量模式测试
  */
 @RestController
 public class ConcurrentVist {

@@ -14,10 +14,10 @@ public interface HelloService {
     String hello();
 
     @RequestMapping(value ="/hello1",method = RequestMethod.GET)
-    String hello1(@RequestParam String name);
+    String hello1(@RequestParam("name") String name);
 
     @RequestMapping(value ="/hello2",method = RequestMethod.GET)
-    UserEntity hello2(@RequestHeader String name, @RequestHeader String age);
+    UserEntity hello2(@RequestHeader("name") String name, @RequestHeader("age") String age);
 
     @RequestMapping(value ="/hello3",method = RequestMethod.POST)
      String hello3(@RequestBody UserEntity userEntity);
