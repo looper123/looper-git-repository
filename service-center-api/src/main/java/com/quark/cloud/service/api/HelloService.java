@@ -2,7 +2,6 @@ package com.quark.cloud.service.api;
 
 import com.quark.cloud.entity.UserEntity;
 import org.springframework.cloud.netflix.feign.FeignClient;
-import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.web.bind.annotation.*;
 
 /**
