@@ -1,15 +1,17 @@
 package com.quark.cloud.service.api;
 
+import com.quark.cloud.configuration.HystrixDisabledConfig;
 import com.quark.cloud.entity.UserEntity;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by ZhenpengLu on 2017/9/29.
- * for feign ribbon test
+ * for feign hystrix test
  */
-@FeignClient(value = "SAMPLE")
-public interface HelloService {
+//注入自定义配置类
+@FeignClient(value = "SAMPLE",configuration = HystrixDisabledConfig.class)
+public interface HelloService1 {
 
     @RequestMapping(value = "/hello",method = RequestMethod.GET)
     String hello();

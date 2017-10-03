@@ -20,6 +20,10 @@ public class HelloController {
 
     private  static Logger logger = LoggerFactory.getLogger(HelloService.class);
 
+    /**
+     * * feign ribbon test
+     * @return
+     */
     @RequestMapping(value = "/feign-consumer",method = RequestMethod.GET)
     public  String feignConsumer(){
         logger.info("hello service hello method"+helloService.hello());
@@ -28,6 +32,7 @@ public class HelloController {
         logger.info("hello service hello3 method"+helloService.hello3(new UserEntity("this is hello3","3")));
        return  "success";
     }
+
 
 
 }

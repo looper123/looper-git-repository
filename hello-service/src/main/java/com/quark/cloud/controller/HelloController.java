@@ -18,6 +18,7 @@ public class HelloController {
 //            e.printStackTrace();
 //        }
         try {
+            //测试feign ribbon的超时等参数是否生效
             Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
