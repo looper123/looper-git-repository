@@ -13,8 +13,6 @@
 
 
     <dependencies>
-
-
         <!--feign service api -->
         <dependency>
             <groupId>com.quark.cloud</groupId>
