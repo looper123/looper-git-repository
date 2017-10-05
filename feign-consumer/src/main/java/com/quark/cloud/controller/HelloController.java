@@ -1,6 +1,5 @@
 package com.quark.cloud.controller;
 
-import com.quark.cloud.entity.UserEntity;
 import com.quark.cloud.service.HelloServiceFallback;
 import com.quark.cloud.service.api.HelloService;
 import org.slf4j.Logger;

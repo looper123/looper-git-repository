@@ -9,12 +9,12 @@ import org.springframework.context.annotation.Scope;
  * Created by Administrator on 2017/10/3/003.
  * close hystrix by customer configuration
  */
-@Configuration
-public class HystrixDisabledConfig {
-
-    @Bean
-    @Scope("prototype")
-    public Feign.Builder  FeignBuilder(){
-        return Feign.builder();
-    }
-}
+//@Configuration
+//public class HystrixDisabledConfig {
+//
+//    @Bean
+//    @Scope("prototype")
+//    public Feign.Builder  FeignBuilder(){
+//        return Feign.builder();
+//    }
+//}

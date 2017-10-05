@@ -20,8 +20,8 @@ public class HelloController {
 //            e.printStackTrace();
 //        }
         try {
-            //测试feign ribbon的超时、重试等参数是否生效
-            int sleepTime = 3500;
+            //测试feign ribbon/hystrix的超时、重试、熔断等参数是否生效
+            int sleepTime = 4000;
 //            int sleepTime = new Random().nextInt(3000);
             System.out.println("sleepTime========="+sleepTime);
             Thread.sleep(sleepTime);
