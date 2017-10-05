@@ -21,9 +21,10 @@ public class HelloController {
 //        }
         try {
             //测试feign ribbon/hystrix的超时、重试、熔断等参数是否生效
-            int sleepTime = 4000;
+            int sleepTime = 100;
+//            int sleepTime = 4000;
 //            int sleepTime = new Random().nextInt(3000);
-            System.out.println("sleepTime========="+sleepTime);
+//            System.out.println("sleepTime========="+sleepTime);
             Thread.sleep(sleepTime);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -31,38 +32,38 @@ public class HelloController {
         return "hello world!!";
     }
 
-    @RequestMapping(value ="hello1",method = RequestMethod.GET)
-    public String sayHello(@RequestParam String name){
-        try {
-            //测试feign ribbon的超时等参数是否生效
-            Thread.sleep(2000);
-//            Thread.sleep(new Random().nextInt(3000));
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return "hello world "+name;
-    }
-
-    @RequestMapping(value ="hello2",method = RequestMethod.GET)
-    public UserEntity sayHello(@RequestHeader String name, @RequestHeader String age){
-        try {
-            //测试feign ribbon的超时等参数是否生效
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return new UserEntity(name,age);
-    }
-
-    @RequestMapping(value ="hello3",method = RequestMethod.POST)
-    public String sayHello(@RequestBody UserEntity userEntity){
-        try {
-            //测试feign ribbon的超时等参数是否生效
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return "hello world"+userEntity.getName()+userEntity.getAge();
-    }
+//    @RequestMapping(value ="hello1",method = RequestMethod.GET)
+//    public String sayHello(@RequestParam String name){
+//        try {
+//            //测试feign ribbon的超时等参数是否生效
+//            Thread.sleep(2000);
+////            Thread.sleep(new Random().nextInt(3000));
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        return "hello world "+name;
+//    }
+//
+//    @RequestMapping(value ="hello2",method = RequestMethod.GET)
+//    public UserEntity sayHello(@RequestHeader String name, @RequestHeader String age){
+//        try {
+//            //测试feign ribbon的超时等参数是否生效
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        return new UserEntity(name,age);
+//    }
+//
+//    @RequestMapping(value ="hello3",method = RequestMethod.POST)
+//    public String sayHello(@RequestBody UserEntity userEntity){
+//        try {
+//            //测试feign ribbon的超时等参数是否生效
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        return "hello world"+userEntity.getName()+userEntity.getAge();
+//    }
 
 }

@@ -1,0 +1,42 @@
+server:
+  port: 8084
+
+#通过网关的访问路径http://localhost:8084/api-a/hello
+#ant 风格 ?任意单个字符 *匹配任数量的字符  **匹配任意数量的字符 支持多级目录
+# yml文件下实现有序的路由规则 （即如果同时匹配了api-a 和api-b 会优先进入api-a中 而不会进入api-b 因为路由规则是线性加载的
+#底层保存在linkedhashmap中 而properties文件无法保证有序）
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+#      把所有匹配/api-a/**的请求转发到指定serviceId的服务上
+      serviceId: sample
+#     把所有匹配/api-a/**的请求转发到指定url的服务上
+#      url: http://localhost:8081/hello
+    api-b:
+      path: /api-b/**
+      serviceId: feign-consumer
+# 等价于
+#zuul:
+#  routes:s
+#    sample: /sample/**
+#    feign-consumer: /feign-consumer/**
+#  所有的服务都不创建路由
+#  ignored-services: *
+
+
+eureka:
+  instance:
+    hostname: api-zuul
+    instance-id: ${spring.application.name}:${random.int[10000,19999]}
+    #同一主机上 不同端口多实例 说明instanceID才是各个服务的唯一标识 去注册中心获取服务时也是通过instanceId来获取
+#    如果默认（false） 当服务向eureka注册时会以sample:8081的形式注册到loadBalance中(隐藏ip)
+#    为true时 会以真实ip  127.0.0.1：8081的形式注册到loadbalance中
+    prefer-ip-address: true
+  client:
+     service-url:
+         defaultZone: http://discovery:8761/eureka
+
+
+
+

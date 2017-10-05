@@ -14,6 +14,7 @@
 		<module>cloud-common</module>
 		<module>hello-service</module>
 		<module>service-center-api</module>
+		<module>api-zuul</module>
 	</modules>
 	<packaging>pom</packaging>
 
