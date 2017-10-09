@@ -5,6 +5,8 @@ server:
 #应在eureka检查端点上也需要做出相应配置
 management:
   context-path: /admin
+  security:
+    enabled: true
 
 #配置多个注册中心 逗号分隔
 eureka:
@@ -19,48 +21,37 @@ eureka:
     health-check-url-path: ${management.context-path}/health
 #    注册中心状态页 http://configserver:8888/health
     status-page-url-path: ${management.context-path}/info
-
-#   environment uri
-#   所有应用的共享仓库地址 你也可以每一个应用配置一个仓库地址 或者配置多个仓库地址
-#spring:
-#  cloud:
-#    config:
-#      server:
-#        git:
-#          uri: https://github.com/spring-cloud-samples/config-repo
-##         本地用于保存远程仓库配置的路径
-#          basedir: config
+    prefer-ip-address: true
 
 
-#eureka:
-#  password: password
-#  instance:
-#    hostname: ${vcap.application.uris[0]}
-#    nonSecurePort: 80
-#  client:
-#    serviceUrl:
-#      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:${eureka.password:}@${PREFIX:}eureka.${application
-#.domain:cfapps.io}}/eureka/
-
-
-
-#project environment
+#config server repository
 spring:
   cloud:
     config:
       server:
         git:
-          uri: http://172.26.182.39:9090/root/pdms.git
-          search-paths: proproties-sit
-          username: JunHuang@quarkfinance.com
-          password: Password@1
-
-security:
-  basic:
-    enabled: false
+          uri: https://github.com/looper123/config-repository-master.git
+          search-paths: config-repository
+          username: m17701848923@163.com
+          password: lzp19920312
+#spring-sercurity
+#security:
+#  basic:
+#    enabled: false
+#  oauth2:
+#    client:
+#      access-token-uri: ${vcap.services.${PREFIX:}sso.credentials.tokenUri:}
+#      user-authorization-uri: ${vcap.services.${PREFIX:}sso.credentials.authorizationUri:}
+#      client-id: ${vcap.services.${PREFIX:}sso.credentials.clientId:}
+#      client-secret: ${vcap.services.${PREFIX:}sso.credentials.clientSecret:}
+#    resource:
+#      token-info-uri: ${vcap.services.${OAUTH2_RESOURCE_SERVICEID:${oauth2.resource.serviceId:sso}}.credentials.tokenInfoUri:}
+#      service-id: ${PREFIX:}resource
 
 management.security.enabled: false
-eureka.client.healthcheck.enabled: true
-info.version: 1.0.0
+
+
+
+
 
 

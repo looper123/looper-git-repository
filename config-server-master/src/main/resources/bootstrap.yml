@@ -7,8 +7,8 @@ spring:
 #    location: classpath:keystore.jks
 #    password: ${KEYSTORE_PASSWORD:foobar}
 #    alias: test
-spring.rabbitmq.host: 172.26.186.59
-spring.rabbitmq.port: 5672
-spring.rabbitmq.username: admin
-spring.rabbitmq.password: admin
+#spring.rabbitmq.host: 172.26.186.59
+#spring.rabbitmq.port: 5672
+#spring.rabbitmq.username: admin
+#spring.rabbitmq.password: admin
 

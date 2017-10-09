@@ -1,9 +1,9 @@
 spring:
   application:
     name: hystrix-consumer
-#  cloud:
-#    config:
-#      uri: http://configserver:8888
+  cloud:
+    config:
+      uri: http://configserver:8888
 #      profile: dev
 #      name: pdms
 #      fail-fast: true

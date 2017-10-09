@@ -1,6 +1,7 @@
 spring:
   application:
     name: eureka
-#  cloud:
-#    config:
+  cloud:
+    config:
 #      uri: ${CONFIG_SERVER_URL:http://localhost:8888}
+      uri: http://configserver:8888
