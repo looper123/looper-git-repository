@@ -3,5 +3,5 @@ spring:
     name: eureka
   cloud:
     config:
-#      uri: ${CONFIG_SERVER_URL:http://localhost:8888}
-      uri: http://configserver:8888
+      uri: ${CONFIG_SERVER_URL:http://localhost:8888}
+#      uri: http://configserver:8888

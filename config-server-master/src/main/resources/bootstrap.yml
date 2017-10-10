@@ -1,10 +1,11 @@
 spring:
   application:
     name: configserver
+
 #encrypt:
 #  failOnError: false
 #  keyStore:
-#    location: classpath:keystore.jks
+#    location: classpath:keystore.jks.bak
 #    password: ${KEYSTORE_PASSWORD:foobar}
 #    alias: test
 #spring.rabbitmq.host: 172.26.186.59
