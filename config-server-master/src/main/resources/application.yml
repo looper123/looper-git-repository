@@ -1,12 +1,13 @@
 server:
   port: 8888
 
+
 #会在所有actuator 提供的端点前一个指定前缀 对
 #应在eureka检查端点上也需要做出相应配置
-#management:
+management:
 #  context-path: /admin
   security:
-    enabled: false
+      enabled: true
 
 
 
@@ -46,13 +47,18 @@ spring:
 #         本地配置文件路径(需要打开读取本地配置spring.profiles.active= native)
 #        native:
 #          search-locations: D:///idea workspace///spring-cloud-local-bak
+
 #         配置库健康监测
-        health:
-          repositories:
-              check:
-                name: didispace
-#                label:
-                profiles: dev
+#        health:
+#          repositories:
+#              check:
+#                name: didispace
+##                label:
+#                profiles: dev
+#        无法被客户端修改 （可以用来配置客户端的公共属性 或者默认属性）
+#        overrides:
+#           name: customerName
+#           from: customerFrom
 
 #          git远程配置文件命名规则
 #          • /{application}/{profile} [/{label}]
@@ -63,9 +69,16 @@ spring:
 
 
 #spring-sercurity
-#security:
-#  basic:
-#    enabled: false
+security:
+  user:
+#   需要在对应客户端添加用户 密码信息 否则无法访问config server服务端
+    name: admin
+    password: admin
+  basic:
+    enabled: true
+
+
+
 #  oauth2:
 #    client:
 #      access-token-uri: ${vcap.services.${PREFIX:}sso.credentials.tokenUri:}
@@ -76,7 +89,7 @@ spring:
 #      token-info-uri: ${vcap.services.${OAUTH2_RESOURCE_SERVICEID:${oauth2.resource.serviceId:sso}}.credentials.tokenInfoUri:}
 #      service-id: ${PREFIX:}resource
 
-management.security.enabled: false
+
 
 
 

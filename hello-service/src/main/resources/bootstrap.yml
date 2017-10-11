@@ -6,6 +6,9 @@ spring:
       uri: http://configserver:8888
       profile: dev
       name: didispace
+#      对应config-server中的用户名和密码
+      username: admin
+      password: admin
 #      fail-fast: true
 #      retry:
 #        initial-interval: 2000
