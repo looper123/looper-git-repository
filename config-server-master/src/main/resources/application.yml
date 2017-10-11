@@ -3,8 +3,8 @@ server:
 
 #会在所有actuator 提供的端点前一个指定前缀 对
 #应在eureka检查端点上也需要做出相应配置
-management:
-  context-path: /admin
+#management:
+#  context-path: /admin
   security:
     enabled: false
 
@@ -28,26 +28,31 @@ eureka:
 
 #config server repository
 spring:
+#  从本地读取配置（不推荐）
+#  profiles:
+#    active: native
   cloud:
     config:
       server:
 #      远程配置文件路径
         git:
           uri: https://github.com/looper123/config-repository-master.git
-          search-paths: config-repository
+          search-paths: config-child
           username: m17701848923@163.com
           password: lzp19920312
-#         本地配置文件路径
+#          使用了git或者svn 后再本地的备份文件
+#          windows下的绝对路径需要用///来分隔（by 官网）
+          basedir: D:///idea workspace///spring-cloud-local-bak
+#         本地配置文件路径(需要打开读取本地配置spring.profiles.active= native)
 #        native:
-#          search-locations:
-
+#          search-locations: D:///idea workspace///spring-cloud-local-bak
 #         配置库健康监测
-#        health:
-#          repositories:
-#              check:
-#                name:
+        health:
+          repositories:
+              check:
+                name: didispace
 #                label:
-#                profiles:
+                profiles: dev
 
 #          git远程配置文件命名规则
 #          • /{application}/{profile} [/{label}]
