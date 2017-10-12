@@ -28,45 +28,6 @@ eureka:
     prefer-ip-address: true
 
 
-#config server repository
-spring:
-#  从本地读取配置（不推荐）
-#  profiles:
-#    active: native
-  cloud:
-    config:
-      server:
-#      远程配置文件路径
-        git:
-          uri: https://github.com/looper123/config-repository-master.git
-          search-paths: config-child
-          username: m17701848923@163.com
-          password: lzp19920312
-#          使用了git或者svn 后再本地的备份文件
-#          windows下的绝对路径需要用///来分隔（by 官网）
-          basedir: D:///idea workspace///spring-cloud-local-bak
-#         本地配置文件路径(需要打开读取本地配置spring.profiles.active= native)
-#        native:
-#          search-locations: D:///idea workspace///spring-cloud-local-bak
-
-#         配置库健康监测
-#        health:
-#          repositories:
-#              check:
-#                name: didispace
-##                label:
-#                profiles: dev
-#        无法被客户端修改 （可以用来配置客户端的公共属性 或者默认属性）
-#        overrides:
-#           name: customerName
-#           from: customerFrom
-
-#          git远程配置文件命名规则
-#          • /{application}/{profile} [/{label}]
-#          • {application}一{profile}. yml
-#          • /{label}/{application}-{profile}.yml
-#          • /{application}-{profile}.properties
-#          • /{label}/{application}-{profile}.properties
 
 
 #spring-sercurity
@@ -111,7 +72,6 @@ encrypt:
 #    resource:
 #      token-info-uri: ${vcap.services.${OAUTH2_RESOURCE_SERVICEID:${oauth2.resource.serviceId:sso}}.credentials.tokenInfoUri:}
 #      service-id: ${PREFIX:}resource
-
 
 
 

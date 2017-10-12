@@ -24,5 +24,9 @@ kafka-console-producer.bat --broker-list localhost:9092 --topic test
 #创建消息消费者
 kafka-console-consumer.bat --zookeeper localhost:2181 --topic test --from-beginning
 
+#spring cloud bus刷新git仓库 (如果想发送到所有实例 -d 后面参数为 null 如果 需要更新具体实例 添加参数 destination=sample:port)
+curl http://configserver:8888/bus/refresh -u admin:admin -d destination=sample:8081
+注意 如果参数设置有误 会默认发送到所有实例
+
 
 
