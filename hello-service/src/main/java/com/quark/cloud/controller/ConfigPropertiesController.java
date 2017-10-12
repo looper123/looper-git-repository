@@ -14,17 +14,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RefreshScope
 public class ConfigPropertiesController {
 
-    @Value("${from}")
-    private String from;
+//    服务启动时会就会立即加载倒容器（如果加载不到会报错）
+//    @Value("${from}")
+//    private String from;
 
     @Autowired
     private Environment environment;
 
-    @RequestMapping("/from")
-    public String getFrom(){
-        String from = this.from;
-        return from ;
-    }
+//    @RequestMapping("/from")
+//    public String getFrom(){
+//        String from = this.from;
+//        return from ;
+//    }
 
     @RequestMapping("/from2")
     public  String getFrom2(){

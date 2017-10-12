@@ -86,19 +86,20 @@ encrypt:
 #得到 looper123 加密后 543f65989a17283dedc051e7646c0bf0e590fdb6f26e8e0b3f95d7740f78d63ef88b151b05ce7e7943b22df245dd98a5
 # 在执行 curl localhost:8888/decrypt -d  543f65989a17283dedc051e7646c0bf0e590fdb6f26e8e0b3f95d7740f78d63ef88b151b05ce7e7943b22df245dd98a5
 # 可以得到解密后的原文 looper123
-#  key: looper123
-  key: {cipher}543f65989a17283dedc051e7646c0bf0e590fdb6f26e8e0b3f95d7740f78d63ef88b151b05ce7e7943b22df245dd98a5
+
+#  key: '{cipher}543f65989a17283dedc051e7646c0bf0e590fdb6f26e8e0b3f95d7740f78d63ef88b151b05ce7e7943b22df245dd98a5'
+
 # 非对称性加密
 #一次性生成keystore文件 并且设置所有参数 密码、存活时间。。。
 #keytool -genkeypair -alias config-server -keyalg RSA -dname "CN=zhaiyongchao, OU=company, O=organization,
 #L=city, ST=province,C=china" -keypass 222222  -keystore config-server.keystore -storepass 111111  -validity 365
-#encrypt:
-#  failOnError: false
   keyStore:
     location: classpath:config-server.keystore
     password: 111111
     alias: config-server
     secret: 222222
+
+#  fail-on-error: true
 
 
 #  oauth2:
