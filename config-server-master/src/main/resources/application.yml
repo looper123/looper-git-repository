@@ -6,8 +6,9 @@ server:
 #应在eureka检查端点上也需要做出相应配置
 management:
 #  context-path: /admin
+# endpoint 访问认证
   security:
-      enabled: true
+      enabled: false
 
 
 
@@ -75,7 +76,17 @@ security:
     name: admin
     password: admin
   basic:
-    enabled: true
+    enabled: false
+
+
+#  对称性加密 本地需要先安装curl
+# 执行 curl localhost:8888/encrypt -d looper123
+#得到 looper123 加密后 543f65989a17283dedc051e7646c0bf0e590fdb6f26e8e0b3f95d7740f78d63ef88b151b05ce7e7943b22df245dd98a5
+# 在执行 curl localhost:8888/decrypt -d  543f65989a17283dedc051e7646c0bf0e590fdb6f26e8e0b3f95d7740f78d63ef88b151b05ce7e7943b22df245dd98a5
+# 可以得到解密后的原文 looper123
+encrypt:
+  key: looper123
+  key: {cipher}543f65989a17283dedc051e7646c0bf0e590fdb6f26e8e0b3f95d7740f78d63ef88b151b05ce7e7943b22df245dd98a5
 
 
 

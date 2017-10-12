@@ -2,12 +2,16 @@ spring:
   application:
     name: configserver
 
-#encrypt:
+#一次性生成keystore文件 并且设置所有参数 密码、存活时间。。。
+#keytool -genkeypair -alias config-server -keyalg RSA -dname "CN=zhaiyongchao, OU=company, O=organization,
+#L=city, ST=province,C=china" -keypass 222222  -keystore config-server.keystore -storepass 111111  -validity 365
+encrypt:
 #  failOnError: false
-#  keyStore:
-#    location: classpath:keystore.jks.bak
-#    password: ${KEYSTORE_PASSWORD:foobar}
-#    alias: test
+  keyStore:
+    location: classpath:config-server.keystore
+    password: 111111
+    alias: config-server
+    secret: 222222
 #spring.rabbitmq.host: 172.26.186.59
 #spring.rabbitmq.port: 5672
 #spring.rabbitmq.username: admin

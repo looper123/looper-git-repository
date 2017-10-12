@@ -8,6 +8,7 @@ spring:
       name: didispace
 #      对应config-server中的用户名和密码
       username: admin
+#      配置中心自动解密
       password: admin
 #      fail-fast: true
 #      retry:
