@@ -49,10 +49,10 @@ spring:
       trace:
         enabled: true
 
-
-#spring.rabbitmq.host: 172.26.186.59
+#rabbitmq 控制台 localhost:15672
+#spring.rabbitmq.host: localhost
 #spring.rabbitmq.port: 5672
-#spring.rabbitmq.username: admin
-#spring.rabbitmq.password: admin
+#spring.rabbitmq.username: springcloud
+#spring.rabbitmq.password: springcloud
 
 
