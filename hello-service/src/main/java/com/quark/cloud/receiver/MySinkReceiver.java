@@ -14,10 +14,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.integration.annotation.InboundChannelAdapter;
 import org.springframework.integration.annotation.Poller;
 import org.springframework.integration.annotation.ServiceActivator;
+import org.springframework.integration.annotation.Transformer;
 import org.springframework.integration.core.MessageSource;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.GenericMessage;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -32,7 +34,7 @@ public class MySinkReceiver {
 
     private static Logger logger = LoggerFactory.getLogger(HelloServiceApplication.class);
 
-//    通道声明 method 1
+//    通道声明 method 1 接收
     @StreamListener(MySink.CHANNEL_NAME)
     public void receive(String payload){
         logger.info("hello-service-MySinkReceiver"+payload);
@@ -40,18 +42,23 @@ public class MySinkReceiver {
 
 
 
-// 通道声明 method 2
-//    @ServiceActivator(inputChannel = MySink.CHANNEL_NAME)
-//    public void receive2(String payload){
-//        logger.info("@ServiceActivator annotation"+payload);
-//    }
+// 通道声明 method 2  接收 如果需要格式转换 只能在接收消息的方法中实现
+    @ServiceActivator(inputChannel = MySink.CHANNEL_NAME)
+    public void receive2(String payload){
+        logger.info("@ServiceActivator annotation"+payload);
+    }
 
-//    通道声明 method 3
-//    @Bean
-//    @InboundChannelAdapter(value = MySource.CHANNEL_NAME,poller = @Poller(fixedDelay ="2000"))
-//    public MessageSource<Date>  timeStampSource(){
-//        return () -> new GenericMessage<>(new Date());
-//    }
+//    通道声明  定时发送（2s一次）
+    @Bean
+    @InboundChannelAdapter(value = MySink.CHANNEL_NAME,poller = @Poller(fixedDelay ="2000"))
+    public MessageSource<Date>  timeStampSource(){
+        return () -> new GenericMessage<>(new Date());
+    }
 
+//    对通道中的消息进行格式转换 只对  @StreamListener 注解接收的消息生效
+    @Transformer(inputChannel = MySink.CHANNEL_NAME,outputChannel = MySink.CHANNEL_NAME)
+    public Object channelTransForm(Date message){
+        return new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss").format(message);
+    }
 
 }

@@ -1,6 +1,7 @@
 package com.quark.cloud.receiver;
 
 import org.springframework.cloud.stream.annotation.Input;
+import org.springframework.integration.annotation.Transformer;
 import org.springframework.messaging.SubscribableChannel;
 import org.springframework.stereotype.Component;
 
@@ -16,6 +17,9 @@ public interface MySink {
 //    返回值固定 SubscribableChannel定义了维护消息通道订阅者的方法
     SubscribableChannel myInput();
 
+//  可以定义多个通道
+//    @Input("customer_channel_01")
+//    SubscribableChannel myOtherInput();
 
 
 }
