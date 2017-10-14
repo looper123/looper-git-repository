@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
+import org.springframework.cloud.stream.messaging.Sink;
+import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.context.annotation.Bean;
 import org.springframework.integration.annotation.InboundChannelAdapter;
 import org.springframework.integration.annotation.Poller;
@@ -20,8 +22,12 @@ import java.util.Date;
 
 /**
  * Created by ZhenpengLu on 2017/10/13.
+ * 父模块收到的消息可以供子模块共享
  */
-@EnableBinding(value ={MySink.class,MySource.class})
+@EnableBinding(value ={MySink.class})
+//注意这里不能写成@EnableBinding(value ={MySink.class,MySource.class})
+//如果input和output公用一个channel通道，它们一定是一（output）对多（input）的关系
+//即发送一条消息到exchenge中后，可以被多个服务所接收
 public class MySinkReceiver {
 
     private static Logger logger = LoggerFactory.getLogger(HelloServiceApplication.class);
@@ -31,18 +37,21 @@ public class MySinkReceiver {
     public void receive(String payload){
         logger.info("hello-service-MySinkReceiver"+payload);
     }
+
+
+
 // 通道声明 method 2
-    @ServiceActivator(inputChannel = MySink.CHANNEL_NAME)
-    public void receive2(String payload){
-        logger.info("@ServiceActivator annotation"+payload);
-    }
+//    @ServiceActivator(inputChannel = MySink.CHANNEL_NAME)
+//    public void receive2(String payload){
+//        logger.info("@ServiceActivator annotation"+payload);
+//    }
 
 //    通道声明 method 3
-    @Bean
-    @InboundChannelAdapter(value = MySource.CHANNEL_NAME,poller = @Poller(fixedDelay ="2000"))
-    public MessageSource<Date>  timeStampSource(){
-        return () -> new GenericMessage<>(new Date());
-    }
+//    @Bean
+//    @InboundChannelAdapter(value = MySource.CHANNEL_NAME,poller = @Poller(fixedDelay ="2000"))
+//    public MessageSource<Date>  timeStampSource(){
+//        return () -> new GenericMessage<>(new Date());
+//    }
 
 
 }

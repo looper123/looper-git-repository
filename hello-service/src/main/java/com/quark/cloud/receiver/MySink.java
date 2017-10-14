@@ -14,7 +14,7 @@ public interface MySink {
 
     @Input(MySink.CHANNEL_NAME)
 //    返回值固定 SubscribableChannel定义了维护消息通道订阅者的方法
-    SubscribableChannel MyInput();
+    SubscribableChannel myInput();
 
 
 
