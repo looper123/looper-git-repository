@@ -2,11 +2,13 @@ spring:
   application:
     name: sample
   cloud:
-#  给input消费进行分组（同一组中只有一台实例会收到消息 随机）
-    stream:
-      bindings:
-        input:
-          group: group-A
+#  input消费进行分组 且同一组中只有一台实例会收到消息（轮询  第一次a收到消息 第二次b收到消息。。。）
+#    stream:
+#      bindings:
+##        通道名称
+#        input:
+##        customer_channel:
+#          group: group-A
     config:
       uri: http://configserver:8888
       profile: dev
