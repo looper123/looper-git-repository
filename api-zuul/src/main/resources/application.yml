@@ -8,22 +8,48 @@ server:
 zuul:
   routes:
     api-a:
+#    推荐配置 （因为zuul本身实现了ribbon负载均衡和hystrix的断路器功能，path+serviceId的配置保证网关的健壮和稳定）
+#   zuul可以像ribbon和hystrix中一样来配置负载均衡和熔断策略（ribbon的超时时间要 < hystrix 熔断后无法触发重试）
+#   关闭该路由的重试策略
+#      retryable: false
       path: /api-a/**
 #      把所有匹配/api-a/**的请求转发到指定serviceId的服务上
       serviceId: sample
 #     把所有匹配/api-a/**的请求转发到指定url的服务上
+#      注意 ！！当使用 path+url组合来配置路由时 没有负载均衡和断路器保护（路由转发的请求不会使用HystrixCommand来包装）
 #      url: http://localhost:8081/hello
     api-b:
       path: /api-b/**
       serviceId: feign-consumer
+
+
+#cookie在zuul网关中默认是不允许传递的
+#推荐方法1 指定路由开启自定义头信息
+#    api-c:
+#      customerSensitiveHeaders: true
+#推荐方法2 指定路由头信息全开启 为空会覆盖系统默认设置
+#      api-c:
+#        sensitiveHeaders:
+
+#页面发送的重定向请求不会经过网关？？
+#add-host-header: true
+
+
 # 等价于
 #zuul:
 #  routes:s
 #    sample: /sample/**
 #    feign-consumer: /feign-consumer/**
+
+
 #  所有的服务都不创建路由
 #  ignored-services: *
+#   细化不需要创建路由的颗粒度
+#    ignored-patterns: /**/hello/**
 
+
+#  全局路由前缀
+#  prefix: /api
 
 eureka:
   instance:
