@@ -19,16 +19,16 @@ public class HelloController {
 //        } catch (InterruptedException e) {
 //            e.printStackTrace();
 //        }
-        try {
+//        try {
             //测试feign ribbon/hystrix的超时、重试、熔断等参数是否生效
-            int sleepTime = 100;
+//            int sleepTime = 100;
 //            int sleepTime = 4000;
 //            int sleepTime = new Random().nextInt(3000);
 //            System.out.println("sleepTime========="+sleepTime);
-            Thread.sleep(sleepTime);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//            Thread.sleep(sleepTime);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         return "hello world!!";
     }
 

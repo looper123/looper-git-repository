@@ -31,8 +31,8 @@ public class HelloService {
     //定义超过信号量阈值时的回调函数
     @HystrixCommand(fallbackMethod = "helloFallBack",commandProperties = {
           @HystrixProperty(name="execution.isolation.strategy", value="SEMAPHORE"),//还有一种THREAD策略
-          @HystrixProperty(name = "execution.isolation.semaphore.maxConcurrentRequests",value = "4")
-//          @HystrixProperty(name = "fallback.isolation.semaphore.maxConcurrentRequests",value = "2")
+          @HystrixProperty(name = "execution.isolation.semaphore.maxConcurrentRequests",value = "50"),
+          @HystrixProperty(name = "fallback.isolation.semaphore.maxConcurrentRequests",value = "1000")
     })
     public String helloConsumer(){
         long start = System.currentTimeMillis();

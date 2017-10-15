@@ -6,10 +6,11 @@ eureka:
     hostname: sample
     instance-id: ${spring.application.name}:${random.int[10000,19999]}
     #同一主机上 不同端口多实例 说明instanceID才是各个服务的唯一标识 去注册中心获取服务时也是通过instanceId来获取
-#    如果默认（false） 当服务向eureka注册时会以sample:8081的形式注册到loadBalance中(隐藏ip)
-#    为true时 会以真实ip  127.0.0.1：8081的形式注册到loadbalance中
     prefer-ip-address: true
+#    non-secure-port: 80
   client:
      service-url:
       defaultZone: http://discovery:8761/eureka
+
+
 
