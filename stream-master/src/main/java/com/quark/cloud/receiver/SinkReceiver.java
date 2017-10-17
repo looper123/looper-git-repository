@@ -33,7 +33,7 @@ public class SinkReceiver {
     @Bean
     @InboundChannelAdapter(value = Processor.OUTPUT,poller = @Poller(fixedDelay = "2000"))
     public MessageSource<String> send(){
-        return()-> new GenericMessage<String>("stream master------put output");
+        return()-> new GenericMessage<>("stream master------put output");
   }
 
 

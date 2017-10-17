@@ -86,7 +86,7 @@ public class MySinkReceiver {
 //    }
 
 
-    //@StreamListener 注解根据配置实现自动转换 无需自己书写类型转换方法
+//    @StreamListener 注解根据配置实现自动转换 无需自己书写类型转换方法
     @StreamListener(value = MyProcessor.INPUT_NAME)
 //    把返回结果 发送给通道入口
     @SendTo(value ="customer_channel")
@@ -101,8 +101,8 @@ public class MySinkReceiver {
         }
         return userEntity;
     }
-
-
+//
+//
     @StreamListener(value = Processor.INPUT)
 //    把返回结果 发送给通道入口
     @SendTo(value =Processor.OUTPUT)

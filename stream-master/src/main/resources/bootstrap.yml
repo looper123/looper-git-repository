@@ -5,11 +5,11 @@ spring:
 #  给input通道进行分组 且同一组中只有一台实例会收到消息（轮询接收消息 这次由实例a接收 下次由实例b接收）
     stream:
       bindings:
-        input:
-#         指定通道间的连接
-          destination: output
-        output:
-           destination: input
+#        input:
+##         指定通道间的连接 (两个微服务之间的转换 只能在其中一个中书写 )
+#          destination: output
+#        output:
+#           destination: input
 ##      通道名称
 #        input:
 ##        组名
