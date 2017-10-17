@@ -1,9 +1,7 @@
 package com.quark.cloud.receiver;
 
 import org.springframework.cloud.stream.annotation.Input;
-import org.springframework.integration.annotation.Transformer;
 import org.springframework.messaging.SubscribableChannel;
-import org.springframework.stereotype.Component;
 
 /**
  * Created by ZhenpengLu on 2017/10/13.

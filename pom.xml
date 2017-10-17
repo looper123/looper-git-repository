@@ -16,7 +16,6 @@
 		<module>service-center-api</module>
 		<module>api-zuul</module>
 		<module>stream-master</module>
-		<module>stream-master-01</module>
 	</modules>
 	<packaging>pom</packaging>
 

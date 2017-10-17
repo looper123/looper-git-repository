@@ -1,10 +1,15 @@
 package com.quark.cloud.receiver;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.quark.cloud.StreamApplication;
+import com.quark.cloud.entity.UserEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
+import org.springframework.cloud.stream.messaging.Processor;
+import org.springframework.messaging.handler.annotation.SendTo;
 
 
 /**
@@ -20,4 +25,5 @@ public class MySinkReceiver {
     public void receive(String payload){
         logger.info("stream-master-MySinkReceiver"+payload);
     }
+
 }

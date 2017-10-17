@@ -40,6 +40,12 @@
             <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
         </dependency>
 
+        <!--spring cloud stream + rxjava-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-stream-reactive</artifactId>
+        </dependency>
+
         <!-- 监控 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -2,12 +2,20 @@ spring:
   application:
     name: sample
   cloud:
+
+    stream:
+      bindings:
+#        通道名称
+#          my_channel:
+#          定义转换类型  @StreamListner  根据消息头声明的消息类型 找到对应的类型转换器 来自动转换
+#            content-type: application/json
+        input:
+#         指定通道间的连接
+          destination: output
+        output:
+           destination: input
 #  input消费进行分组 且同一组中只有一台实例会收到消息（轮询  第一次a收到消息 第二次b收到消息。。。）
-#    stream:
-#      bindings:
-##        通道名称
-#        input:
-##        customer_channel:
+#        customer_channel:
 #          group: group-A
     config:
       uri: http://configserver:8888
