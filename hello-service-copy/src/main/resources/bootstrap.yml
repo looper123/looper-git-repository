@@ -1,6 +1,6 @@
 spring:
   application:
-    name: sample
+    name: hello-service-copy
   cloud:
     stream:
       bindings:

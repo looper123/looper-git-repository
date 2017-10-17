@@ -20,18 +20,18 @@ import org.springframework.messaging.support.GenericMessage;
 //@EnableBinding(value = {Sink.class,Source.class})
 // 注意sink 接口是spring cloud stream提供的默认实现 还有source和processor 可以查看源码学习如何用自定义接口绑定消息通道
 // 不能重复定义通道
-@EnableBinding(value ={Processor.class})
+@EnableBinding(value ={Source.class})
 public class SinkReceiver {
 
    private static Logger logger = LoggerFactory.getLogger(StreamApplication.class);
 
-    @StreamListener(Processor.INPUT)
-    public void receive(String payload){
-            logger.info("stream master----get iput"+payload);
-    }
+//    @StreamListener(Processor.INPUT)
+//    public void receive(String payload){
+//            logger.info("stream master----get iput"+payload);
+//    }
 
     @Bean
-    @InboundChannelAdapter(value = Processor.OUTPUT,poller = @Poller(fixedDelay = "2000"))
+    @InboundChannelAdapter(value = Source.OUTPUT,poller = @Poller(fixedDelay = "2000"))
     public MessageSource<String> send(){
         return()-> new GenericMessage<>("stream master------put output");
   }

@@ -16,6 +16,7 @@
 		<module>service-center-api</module>
 		<module>api-zuul</module>
 		<module>stream-master</module>
+		<module>hello-service-copy</module>
 	</modules>
 	<packaging>pom</packaging>
 

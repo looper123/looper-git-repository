@@ -27,7 +27,7 @@ import java.util.Date;
  * 父模块收到的消息可以供子模块共享
  * 一个ying中 两个@StreamListener 修饰的方法不能定义同一个通道
  */
-@EnableBinding(value = {MySink.class, MyInput.class,Processor.class,MyProcessor.class})
+@EnableBinding(value = {MySink.class, MyInput.class,MyProcessor.class})
 //如果input和output公用一个channel通道，如果定义了发布者 至少需要一个订阅者
 public class MySinkReceiver {
 
@@ -35,10 +35,10 @@ public class MySinkReceiver {
 
     //    接收定时发送消息 method 1 接收
 //  不能用Object类型接收参数 （会默认接收到一条 以通道名为内容的消息  如果再有其他消息发送过来 会报出找不到订阅者的错误）
-    @StreamListener(value = MySink.CHANNEL_NAME)
-    public void receive(UserEntity payload) {
-        logger.info("hello-service-MySinkReceiver" + payload);
-    }
+//    @StreamListener(value = MySink.CHANNEL_NAME)
+//    public void receive(UserEntity payload) {
+//        logger.info("hello-service-MySinkReceiver" + payload);
+//    }
 
     //   接收定时发送消息 method 2 接收
 //    @ServiceActivator(inputChannel = MySink.CHANNEL_NAME)
@@ -86,31 +86,31 @@ public class MySinkReceiver {
 //    }
 
 
-//    @StreamListener 注解根据配置实现自动转换 无需自己书写类型转换方法
-    @StreamListener(value = MyProcessor.INPUT_NAME)
-//    把返回结果 发送给通道入口
-    @SendTo(value ="customer_channel")
-    public UserEntity getFromJson2(UserEntity userEntity) {
-        String s = null;
-        logger.info("transform by @StreamListener" + userEntity);
-        ObjectMapper objectMapper = new ObjectMapper();
-        try {
-            s = objectMapper.writeValueAsString(userEntity);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        return userEntity;
-    }
+    //@StreamListener 注解根据配置实现自动转换 无需自己书写类型转换方法
+//    @StreamListener(value = MyProcessor.INPUT_NAME)
+////    把返回结果 发送给通道入口
+//    @SendTo(value ="customer_channel")
+//    public UserEntity getFromJson2(UserEntity userEntity) {
+//        String s = null;
+//        logger.info("transform by @StreamListener" + userEntity);
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        try {
+//            s = objectMapper.writeValueAsString(userEntity);
+//        } catch (JsonProcessingException e) {
+//            e.printStackTrace();
+//        }
+//        return userEntity;
+//    }
 //
 //
-    @StreamListener(value = Processor.INPUT)
-//    把返回结果 发送给通道入口
-    @SendTo(value =Processor.OUTPUT)
-    public String channelInteractive(String message) {
-        String s = null;
-        logger.info("hello service--------get input" + message);
-        return "hello service------put output";
-    }
+//    @StreamListener(value = Processor.INPUT)
+////    把返回结果 发送给通道入口
+//    @SendTo(value =Processor.OUTPUT)
+//    public String channelInteractive(String message) {
+//        String s = null;
+//        logger.info("hello service--------get input" + message);
+//        return "hello service------put output";
+//    }
 
 
 }

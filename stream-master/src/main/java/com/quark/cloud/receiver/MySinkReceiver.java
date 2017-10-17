@@ -16,7 +16,7 @@ import org.springframework.messaging.handler.annotation.SendTo;
  * Created by ZhenpengLu on 2017/10/13.
  */
 //把自定义通道注入容器否则会报错org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type
-@EnableBinding(value ={MySource.class,MySink.class})
+@EnableBinding(value ={MySink.class})
 public class MySinkReceiver {
 
     private static Logger logger = LoggerFactory.getLogger(StreamApplication.class);

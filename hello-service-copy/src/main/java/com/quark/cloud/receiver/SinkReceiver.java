@@ -1,19 +1,11 @@
 package com.quark.cloud.receiver;
 
-import com.quark.cloud.HelloServiceApplication;
+import com.quark.cloud.HelloServiceCopyApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
-import org.springframework.cloud.stream.messaging.Processor;
 import org.springframework.cloud.stream.messaging.Sink;
-import org.springframework.cloud.stream.messaging.Source;
-import org.springframework.context.annotation.Bean;
-import org.springframework.integration.annotation.InboundChannelAdapter;
-import org.springframework.integration.annotation.Poller;
-import org.springframework.integration.annotation.ServiceActivator;
-import org.springframework.integration.core.MessageSource;
-import org.springframework.messaging.support.GenericMessage;
 
 /**
  * Created by ZhenpengLu on 2017/10/13.
@@ -23,11 +15,11 @@ import org.springframework.messaging.support.GenericMessage;
 @EnableBinding(value ={Sink.class,MyInput.class})
 public class SinkReceiver {
 
-   private static Logger logger = LoggerFactory.getLogger(HelloServiceApplication.class);
+   private static Logger logger = LoggerFactory.getLogger(HelloServiceCopyApplication.class);
 
     @StreamListener(Sink.INPUT)
     public void receive(String payload){
-            logger.info("hello service get----greetings"+payload);
+            logger.info("hello service copy get----greetings"+payload);
     }
 
 //    @Bean
