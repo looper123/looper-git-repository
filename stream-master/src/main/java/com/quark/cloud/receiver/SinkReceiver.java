@@ -33,6 +33,7 @@ public class SinkReceiver {
     @Bean
     @InboundChannelAdapter(value = Source.OUTPUT,poller = @Poller(fixedDelay = "2000"))
     public MessageSource<String> send(){
+        logger.info("stream master transform output to greetings is running");
         return()-> new GenericMessage<>("stream master------put output");
   }
 
