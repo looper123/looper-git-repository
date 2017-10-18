@@ -34,7 +34,7 @@ public class MySinkReceiver {
     private static Logger logger = LoggerFactory.getLogger(HelloServiceApplication.class);
 
     //    接收定时发送消息 method 1 接收
-//  不能用Object类型接收参数 （会默认接收到一条 以通道名为内容的消息  如果再有其他消息发送过来 会报出找不到订阅者的错误）
+// TODO: 2017/10/18  不能用Object类型接收参数 （会默认接收到一条 以通道名为内容的消息  如果再有其他消息发送过来 会报出找不到订阅者的错误）
 //    @StreamListener(value = MySink.CHANNEL_NAME)
 //    public void receive(UserEntity payload) {
 //        logger.info("hello-service-MySinkReceiver" + payload);

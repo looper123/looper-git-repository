@@ -17,11 +17,16 @@ public class SinkReceiver {
 
    private static Logger logger = LoggerFactory.getLogger(HelloServiceCopyApplication.class);
 
-    @StreamListener(Sink.INPUT)
-    public void receive(String payload){
-            logger.info("hello service copy get----greetings"+payload);
-    }
+//    @StreamListener(Sink.INPUT)
+//    public void receive(String payload){
+//            logger.info("hello service copy get----greetings"+payload);
+//    }
 
+//    test for partitionKeyExpression in   properties
+    @StreamListener(Sink.INPUT)
+    public void receiveChild(PayLoadChild child){
+        logger.info("hello service copy get----greetings"+"----key---"+child.getPartitionKey()+"----data---"+child.getPartitionData());
+    }
 //    @Bean
 //    @InboundChannelAdapter(value = Processor.OUTPUT,poller = @Poller(fixedDelay = "2000"))
 //    public MessageSource<String> send(){

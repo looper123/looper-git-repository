@@ -73,7 +73,3 @@ encrypt:
 #      token-info-uri: ${vcap.services.${OAUTH2_RESOURCE_SERVICEID:${oauth2.resource.serviceId:sso}}.credentials.tokenInfoUri:}
 #      service-id: ${PREFIX:}resource
 
-
-
-
-

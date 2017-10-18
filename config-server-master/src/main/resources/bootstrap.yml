@@ -49,10 +49,23 @@ spring:
       trace:
         enabled: true
 
-#rabbitmq 控制台 localhost:15672
-#spring.rabbitmq.host: localhost
-#spring.rabbitmq.port: 5672
-#spring.rabbitmq.username: springcloud
-#spring.rabbitmq.password: springcloud
+#sping bus 两种组件配置
+# rabbitmq 控制台 localhost:15672
+#  rabbitmq:
+#    host: 127.0.0.1
+#    port: 5672
+#    username: guest
+#    password: guest
+#    配置多台rabbit 逗号分隔
+#    addresses:
+#spring bus kafka spring-boot-starter-parent 1.5.0及以上版本 有自動化配置
+#  kafka:
+#   支持多台 逗号分隔
+#    bootstrap-servers: 127.0.0.1:9092
+
+
+
+
+
 
 

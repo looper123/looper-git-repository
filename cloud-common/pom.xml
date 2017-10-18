@@ -11,4 +11,13 @@
 
     <artifactId>cloud-common</artifactId>
 
+
+    <dependencies>
+        <!--spring cloud stream 响应式编程-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-stream-reactive</artifactId>
+        </dependency>
+
+    </dependencies>
 </project>

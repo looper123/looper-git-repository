@@ -25,9 +25,15 @@ public class SinkReceiver {
 
    private static Logger logger = LoggerFactory.getLogger(HelloServiceApplication.class);
 
+//    @StreamListener(Sink.INPUT)
+//    public void receive(String payload){
+//            logger.info("hello service get----greetings"+payload);
+//    }
+
+    //    test for partitionKeyExpression in   properties
     @StreamListener(Sink.INPUT)
-    public void receive(String payload){
-            logger.info("hello service get----greetings"+payload);
+    public void receiveChild(PayLoadChild child){
+        logger.info("hello service get----greetings"+"----key---"+child.getPartitionKey()+"----data---"+child.getPartitionData());
     }
 
 //    @Bean

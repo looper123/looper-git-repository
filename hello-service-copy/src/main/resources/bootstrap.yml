@@ -9,9 +9,15 @@ spring:
 #          定义转换类型  @StreamListner  根据消息头声明的消息类型 找到对应的类型转换器 来自动转换
 #            content-type: application/json
         input:
+#        打开分区功能
+          consumer:
+             partitioned: true
 #         指定通道间的连接
           group: group-A
           destination: greetings
+      instance-index: 0
+      instance-count: 2
+      default-binder: rabbit
 #          如果配置不生效  先重新编译
 #        output:
 #           destination: input
@@ -20,8 +26,8 @@ spring:
 #          group: group-A
     config:
       uri: http://configserver:8888
-      profile: dev
-      name: didispace
+      profile: rabbit
+      name: stream
 #      对应config-server中的用户名和密码
       username: admin
 #      配置中心自动解密

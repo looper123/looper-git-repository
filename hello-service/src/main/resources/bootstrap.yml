@@ -6,12 +6,24 @@ spring:
       bindings:
 #        通道名称
 #          my_channel:
-#          定义转换类型  @StreamListner  根据消息头声明的消息类型 找到对应的类型转换器 来自动转换
+#        定义消息转换类型  @StreamListner  根据消息头声明的消息类型 找到对应的类型转换器 来自动转换
+#       根据通道名称来进行转换（支持输入通道和输出通道）
+#       详见spring官网  http://cloud.spring.io/spring-cloud-static/Camden.SR7/#contenttypemanagement
+#        搜索关键词  MIME types and Java types
 #            content-type: application/json
         input:
+#          打开消息分区
+          consumer:
+            partitioned: true
 #         指定通道间的连接
           group: group-A
           destination: greetings
+#     当前消费通道实例的索引号（从0 开始 最大值为 instance-count - 1）
+#     分区后 当消息被发送到同一个group时 只有index为0 的实例在执行
+      instance-index: 1
+#     当前消费通道实例数量
+      instance-count: 2
+      default-binder: rabbit
 #          如果配置不生效  先重新编译
 #        output:
 #           destination: input
@@ -20,8 +32,8 @@ spring:
 #          group: group-A
     config:
       uri: http://configserver:8888
-      profile: dev
-      name: didispace
+      profile: rabbit
+      name: stream
 #      对应config-server中的用户名和密码
       username: admin
 #      配置中心自动解密
