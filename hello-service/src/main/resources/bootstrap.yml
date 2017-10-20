@@ -1,4 +1,8 @@
 spring:
+# 如果通过消息中间（如rabbit）件来收集信息 一定要设置为false
+# 不然初始化的时候会把zipkin和消息中间件(rabbit) 都注册为消息收集器 但是默认初始化只需要一个（程序不知道初始化哪一个收集器）
+  zipkin:
+    enabled: false
   sleuth:
     sampler:
       percentage: 1
@@ -54,6 +58,7 @@ spring:
         multiplier: 2
 #        重试次数
         max-attempts: 10
+
 
 
 
