@@ -5,6 +5,8 @@ prefer-to-ip参数说明 （重要）
 为true时 会以真实ip  127.0.0.1：8081的形式注册到loadbalance中
 
 
+
+
 #spring cloud bus+kafka 实现配置消息分发实现步骤
 #启动zookeeper (kafka安装包下)
 bin\windows\zookeeper-server-start.bat config\zookeeper.properties
