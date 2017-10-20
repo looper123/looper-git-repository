@@ -18,6 +18,7 @@
 		<module>stream-master</module>
 		<module>hello-service-copy</module>
 		<module>sleuth-hello-service</module>
+		<module>zipkin-server</module>
 	</modules>
 	<packaging>pom</packaging>
 
