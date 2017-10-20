@@ -13,7 +13,7 @@ spring:
 #         可以为单个channel设置单独绑定器
 #          binder: kafka
 #         设置不同环境下的rabbit
-#            binder: rabbit1
+#          binder: rabbit1
           destination: greetings
           producer:
 #          分区表达式规则  默认 payload 表示把发送通道中的所有消息发送出去
@@ -21,10 +21,8 @@ spring:
             partitionKeyExpression: payload.partitionKey
 #            消息分区数量 >=2
             partitionCount: 2
-#       设置默认绑定器   如果环境下存在多个spring  没有此配置 无法识别使用哪一个
+#       设置默认绑定器   如果环境下存在多个  没有此配置 spring无法识别使用哪一个
       default-binder: rabbit
-#         组名
-#        group: group-A
     config:
       uri: http://configserver:8888
       profile: rabbit
@@ -44,4 +42,6 @@ spring:
         multiplier: 2
 #        重试次数
         max-attempts: 10
+
+
 

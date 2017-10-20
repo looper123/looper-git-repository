@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: sleuth
+    config:
+      uri: http://configserver:8888
+      profile: rabbit
+      name: stream
+#      对应config-server中的用户名和密码
+      username: admin
+#      配置中心自动解密
+      password: admin
+#    快速失败与响应重试
+      fail-fast: true
+      retry:
+#      初始间隔
+        initial-interval: 2000
+#        最大间隔
+        max-interval: 10000
+#       每一个间隔之前的乘数（2s,2.2s....10s）
+        multiplier: 2
+#        重试次数
+        max-attempts: 10
+
+
+

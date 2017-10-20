@@ -27,7 +27,6 @@ public interface HelloService {
      String hello3(@RequestBody UserEntity userEntity);
 
 
-
 //    @Component
 //    static class HystrixClientFallback implements HelloService {
 //        @Override

@@ -1,4 +1,4 @@
-#  抽离所有service-client的调用接口
+#  spring cloud feign   ribbon、hystrix 、FeignClient等组件的集成
 
 
 

@@ -18,6 +18,8 @@ spring:
 #         指定通道间的连接
           group: group-A
           destination: greetings
+#          动态绑定的目标列表
+#          dynamicDestination:
 #     当前消费通道实例的索引号（从0 开始 最大值为 instance-count - 1）
 #     分区后 当消息被发送到同一个group时 只有index为0 的实例在执行
       instance-index: 1
@@ -49,4 +51,6 @@ spring:
         multiplier: 2
 #        重试次数
         max-attempts: 10
+
+
 
