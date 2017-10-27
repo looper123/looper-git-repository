@@ -8,9 +8,21 @@ eureka:
     #同一主机上 不同端口多实例 说明instanceID才是各个服务的唯一标识 去注册中心获取服务时也是通过instanceId来获取
     prefer-ip-address: true
 #    non-secure-port: 80
+#   心跳频率（10向服务器发送一次心跳）
+    lease-renewal-interval-in-seconds: 10
+#    服务超时（服务停止20秒后 剔除出服务列表）
+    lease-expiration-duration-in-seconds: 20
   client:
      service-url:
       defaultZone: http://discovery:8761/eureka
+     registry-fetch-interval-seconds: 10
+     register-with-eureka: true
+#    抓取注册的服务
+     fetch-registry: true
+#    初始化实例信息到eureka的时间
+     initial-instance-info-replication-interval-seconds: 10
+#    更新实例变化信息到eureka的时间
+     instance-info-replication-interval-seconds: 10
 
 
 

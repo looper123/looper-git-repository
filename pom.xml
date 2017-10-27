@@ -19,6 +19,7 @@
 		<module>hello-service-copy</module>
 		<module>sleuth-hello-service</module>
 		<module>zipkin-server</module>
+		<module>consul-master</module>
 	</modules>
 	<packaging>pom</packaging>
 
